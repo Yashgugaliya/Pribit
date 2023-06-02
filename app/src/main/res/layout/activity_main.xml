@@ -47,13 +47,13 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_16dp"
-                android:layout_marginVertical="@dimen/_20dp"
+                android:layout_marginVertical="@dimen/_16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -118,7 +118,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_rounded_corner"
-                    android:paddingHorizontal="12dp"
+                    android:paddingHorizontal="16dp"
                     android:paddingVertical="@dimen/_4dp"
                     android:text="@string/button_text"
                     android:textColor="@color/white"
@@ -130,11 +130,11 @@
 
             <TextView
                 android:id="@+id/tvQuestion"
-                android:layout_marginHorizontal="@dimen/_16dp"
                 style="@style/TextViewSemiBold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20dp"
+                android:layout_marginHorizontal="@dimen/_16dp"
+                android:layout_marginTop="@dimen/_16dp"
                 android:text="@string/question"
                 android:textColor="#1D232B"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -143,10 +143,10 @@
 
             <TextView
                 android:id="@+id/tvAnswer"
-                android:layout_marginHorizontal="@dimen/_16dp"
                 style="@style/TextViewLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16dp"
                 android:layout_marginTop="12dp"
                 android:gravity="center_vertical"
                 android:text="@string/answer"
@@ -157,12 +157,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvQuestion" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginHorizontal="@dimen/_16dp"
                 android:id="@+id/rvChips"
-                tools:visibility="gone"
-                android:layout_marginTop="@dimen/_8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16dp"
+                android:layout_marginTop="@dimen/_8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvAnswer"
@@ -173,6 +172,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:layout_marginTop="@dimen/_16dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rvChips" />
 
@@ -181,11 +181,289 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:elevation="4dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/viewpager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <TextView
+                android:id="@+id/tvHeart"
+                style="@style/TextViewLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_16dp"
+                android:gravity="center"
+                android:text="@string/_5"
+                android:textColor="#919EB6"
+                app:drawableLeftCompat="@drawable/off"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewpager" />
+
+            <TextView
+                android:id="@+id/tvComment"
+                style="@style/TextViewLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_16dp"
+                android:gravity="center"
+                android:text="@string/_5"
+                android:textColor="#919EB6"
+                app:drawableLeftCompat="@drawable/ic_comment"
+                app:layout_constraintStart_toEndOf="@+id/tvHeart"
+                app:layout_constraintTop_toBottomOf="@+id/viewpager" />
+
+            <TextView
+                android:id="@+id/tvBookMark"
+                style="@style/TextViewLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_16dp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#919EB6"
+                app:drawableLeftCompat="@drawable/group_26086556"
+                app:layout_constraintStart_toEndOf="@+id/tvComment"
+                app:layout_constraintTop_toBottomOf="@+id/viewpager" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_dot"
+                android:layout_marginStart="@dimen/_20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBookMark"
+                app:layout_constraintStart_toEndOf="@id/tvBookMark"
+                app:layout_constraintTop_toTopOf="@+id/tvBookMark" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:background="#F7F8FA"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHeart" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16dp"
+                android:layout_marginVertical="@dimen/_8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view">
+
+                <ImageView
+                    android:id="@+id/ivComProfile"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:src="@drawable/ic_profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvComName"
+                    style="@style/TextViewSemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8dp"
+                    android:drawablePadding="@dimen/_4dp"
+                    android:text="@string/name"
+                    android:textColor="#1D232B"
+                    app:drawableEndCompat="@drawable/expert_icon"
+                    app:layout_constraintStart_toEndOf="@+id/ivComProfile"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvComSum"
+                    style="@style/TextViewRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8dp"
+                    android:text="@string/sub"
+                    android:textColor="@color/_919EB6"
+                    app:layout_constraintStart_toEndOf="@+id/tvComName"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_dot"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvComAnswer"
+                    style="@style/TextViewLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/com_answer"
+                    android:textColor="@color/_313B49"
+                    app:layout_constraintStart_toEndOf="@+id/ivComProfile"
+                    app:layout_constraintTop_toBottomOf="@+id/ivComProfile" />
+
+                <TextView
+                    android:id="@+id/tvComHeart"
+                    style="@style/TextViewLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8dp"
+                    android:gravity="center"
+                    android:text="@string/_5"
+                    android:textColor="#919EB6"
+                    app:drawableLeftCompat="@drawable/off"
+                    app:layout_constraintStart_toEndOf="@+id/ivComProfile"
+                    app:layout_constraintTop_toBottomOf="@+id/tvComAnswer" />
+
+                <TextView
+                    android:id="@+id/tvComComment"
+                    style="@style/TextViewLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8dp"
+                    android:gravity="center"
+                    android:text="@string/_5"
+                    android:textColor="#919EB6"
+                    app:drawableLeftCompat="@drawable/ic_comment"
+                    app:layout_constraintStart_toEndOf="@+id/tvComHeart"
+                    app:layout_constraintTop_toBottomOf="@+id/tvComAnswer" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clSubCom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="58dp"
+                android:layout_marginTop="@dimen/_16dp"
+                android:layout_marginEnd="@dimen/_16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/clComment">
+
+                <ImageView
+                    android:id="@+id/ivSubComProfile"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:src="@drawable/ic_profile2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvSubComName"
+                    style="@style/TextViewSemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8dp"
+                    android:drawablePadding="@dimen/_4dp"
+                    android:text="@string/sun"
+                    android:textColor="#1D232B"
+                    app:layout_constraintStart_toEndOf="@+id/ivSubComProfile"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvSubComSum"
+                    style="@style/TextViewRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8dp"
+                    android:text="@string/sub"
+                    android:textColor="@color/_919EB6"
+                    app:layout_constraintStart_toEndOf="@+id/tvSubComName"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_dot"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvSubComAnswer"
+                    style="@style/TextViewLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/sub_com_answer"
+                    android:textColor="@color/_313B49"
+                    app:layout_constraintStart_toEndOf="@+id/ivSubComProfile"
+                    app:layout_constraintTop_toBottomOf="@+id/ivSubComProfile" />
+
+                <TextView
+                    android:id="@+id/tvSubComHeart"
+                    style="@style/TextViewLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8dp"
+                    android:gravity="center"
+                    android:text="@string/_5"
+                    android:textColor="#919EB6"
+                    app:drawableLeftCompat="@drawable/off"
+                    app:layout_constraintStart_toEndOf="@+id/ivSubComProfile"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubComAnswer" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="@dimen/_16dp"
+                android:background="#F7F8FA"
+                app:layout_constraintBottom_toTopOf="@id/clBottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clSubCom" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clBottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_16dp"
+                android:paddingTop="@dimen/_16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivCamera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/imagesmode"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvCamera"
+                    style="@style/TextViewLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/camera_text"
+                    android:textColor="@color/_AFB9CA"
+                    app:layout_constraintStart_toEndOf="@+id/ivCamera"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvCamera2"
+                    style="@style/TextViewLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/camera_text2"
+                    android:textColor="@color/_AFB9CA"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
