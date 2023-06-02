@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="TextViewBold">
+        <item name="fontFamily">@font/notosans_bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextViewSemiBold">
+        <item name="fontFamily">@font/notosans_semibold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextViewRegular">
+        <item name="fontFamily">@font/notosans_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextViewLight">
+        <item name="fontFamily">@font/notosans_light</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+</resources>
